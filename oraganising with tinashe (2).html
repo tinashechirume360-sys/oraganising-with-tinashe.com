@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Organising With Tinashe | FIELD TRIPS</title>
+
+<!-- GOOGLE FONTS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+/* =========================================================
+GLOBAL STYLES
+========================================================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+--primary:#07111f;
+--secondary:#0f1f36;
+--accent:#ffd700;
+--light:#ffffff;
+--text:#d7d7d7;
+--glass:rgba(255,255,255,0.08);
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:var(--primary);
+color:white;
+overflow-x:hidden;
+}
+
+/* =========================================================
+CUSTOM SCROLLBAR
+========================================================= */
+
+body::-webkit-scrollbar{
+width:10px;
+}
+
+body::-webkit-scrollbar-thumb{
+background:gold;
+border-radius:30px;
+}
+
+/* =========================================================
+LOADING SCREEN
+========================================================= */
+
+.loader{
+position:fixed;
+inset:0;
+background:#020913;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+}
+
+.loader span{
+width:90px;
+height:90px;
+border:8px solid rgba(255,255,255,0.1);
+border-top:8px solid gold;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* =========================================================
+HEADER
+========================================================= */
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:999;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,0.35);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+font-family:'Montserrat',sans-serif;
+}
+
+.logo span{
+color:gold;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-weight:500;
+position:relative;
+transition:0.4s;
+}
+
+.nav-links a:hover{
+color:gold;
+}
+
+.nav-links a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-5px;
+width:0;
+height:2px;
+background:gold;
+transition:0.4s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* =========================================================
+HAMBURGER
+========================================================= */
+
+.hamburger{
+display:none;
+font-size:2rem;
+cursor:pointer;
+}
+
+/* =========================================================
+HERO SECTION
+========================================================= */
+
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(rgba(0,0,0,0.75),rgba(7,17,31,0.94));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:1000px;
+padding:20px;
+animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.hero-content h1{
+font-size:6rem;
+font-family:'Montserrat',sans-serif;
+margin-bottom:20px;
+text-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.hero-content p{
+font-size:1.3rem;
+line-height:1.8;
+margin-bottom:35px;
+color:#ddd;
+}
+
+/* =========================================================
+BUTTONS
+========================================================= */
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+border-radius:50px;
+font-weight:700;
+text-decoration:none;
+transition:0.4s;
+margin:10px;
+}
+
+.primary-btn{
+background:gold;
+color:#07111f;
+}
+
+.secondary-btn{
+border:2px solid white;
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 15px 35px rgba(0,0,0,0.5);
+}
+
+/* =========================================================
+SECTIONS
+========================================================= */
+
+.section{
+padding:110px 8%;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:3rem;
+margin-bottom:15px;
+font-family:'Montserrat',sans-serif;
+}
+
+.section-title p{
+max-width:850px;
+margin:auto;
+line-height:1.9;
+color:#ccc;
+}
+
+/* =========================================================
+CARDS
+========================================================= */
+
+.cards-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:var(--glass);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.08);
+padding:30px;
+border-radius:25px;
+transition:0.5s;
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.card:hover{
+transform:translateY(-12px);
+}
+
+.card i{
+font-size:3rem;
+color:gold;
+margin-bottom:20px;
+}
+
+.card h3{
+margin-bottom:15px;
+font-size:1.5rem;
+}
+
+.card p{
+line-height:1.8;
+color:#ddd;
+}
+
+/* =========================================================
+DESTINATION IMAGES
+========================================================= */
+
+.destination-image{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:20px;
+margin-bottom:20px;
+transition:0.5s;
+}
+
+.destination-image:hover{
+transform:scale(1.04);
+}
+
+/* =========================================================
+STATISTICS
+========================================================= */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.stat-box{
+background:linear-gradient(135deg,#102543,#08121f);
+padding:40px;
+border-radius:20px;
+text-align:center;
+}
+
+.stat-box h2{
+font-size:3rem;
+color:gold;
+margin-bottom:10px;
+}
+
+/* =========================================================
+GALLERY
+========================================================= */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:20px;
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.06);
+}
+
+/* =========================================================
+FAQ
+========================================================= */
+
+.faq{
+max-width:950px;
+margin:auto;
+}
+
+.faq-item{
+background:rgba(255,255,255,0.08);
+border-radius:15px;
+overflow:hidden;
+margin-bottom:20px;
+}
+
+.faq-question{
+padding:22px;
+font-weight:600;
+cursor:pointer;
+background:rgba(255,255,255,0.06);
+}
+
+.faq-answer{
+max-height:0;
+overflow:hidden;
+transition:0.5s;
+padding:0 20px;
+}
+
+.faq-item.active .faq-answer{
+max-height:300px;
+padding:20px;
+}
+
+/* =========================================================
+TRANSPORT MODALS
+========================================================= */
+
+.transport-buttons{
+margin-top:20px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.transport-buttons button{
+padding:10px 18px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:gold;
+font-weight:600;
+transition:0.3s;
+}
+
+.transport-buttons button:hover{
+transform:scale(1.05);
+}
+
+.hidden-content{
+display:none;
+margin-top:15px;
+line-height:1.8;
+color:#ddd;
+}
+
+/* =========================================================
+RISK BOX
+========================================================= */
+
+.risk-box{
+background:#122743;
+border-left:5px solid gold;
+padding:25px;
+border-radius:15px;
+margin-bottom:25px;
+}
+
+.risk-box h3{
+margin-bottom:12px;
+}
+
+.what-btn{
+margin-top:15px;
+padding:12px 20px;
+border:none;
+background:gold;
+font-weight:700;
+border-radius:10px;
+cursor:pointer;
+}
+
+.solution{
+display:none;
+margin-top:15px;
+line-height:1.8;
+color:#ddd;
+}
+
+/* =========================================================
+CONTACT
+========================================================= */
+
+.contact-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+input,
+textarea{
+padding:15px;
+border:none;
+border-radius:12px;
+font-family:'Poppins',sans-serif;
+}
+
+iframe{
+width:100%;
+height:350px;
+border:none;
+border-radius:20px;
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
+
+footer{
+background:#02060d;
+padding:70px 8% 30px;
+text-align:center;
+}
+
+.footer-links{
+margin:25px 0;
+}
+
+.footer-links a{
+margin:0 10px;
+text-decoration:none;
+color:white;
+transition:0.4s;
+}
+
+.footer-links a:hover{
+color:gold;
+}
+
+.socials a{
+font-size:1.5rem;
+margin:0 10px;
+color:white;
+transition:0.4s;
+}
+
+.socials a:hover{
+color:gold;
+}
+
+/* =========================================================
+SCROLL REVEAL
+========================================================= */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:3.5rem;
+}
+
+.nav-links{
+position:absolute;
+top:80px;
+right:-100%;
+background:#07111f;
+width:250px;
+padding:30px;
+flex-direction:column;
+transition:0.5s;
+}
+
+.nav-links.show{
+right:0;
+}
+
+.hamburger{
+display:block;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================================================
+LOADER
+========================================================= -->
+
+<div class="loader">
+<span></span>
+</div>
+
+<!-- =========================================================
+HEADER
+========================================================= -->
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+<i class="fa-solid fa-earth-africa"></i>
+<span> Organising With Tinashe</span>
+</div>
+
+<ul class="nav-links">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#history">History</a></li>
+<li><a href="#importance">Importance</a></li>
+<li><a href="#destinations">Destinations</a></li>
+<li><a href="#transport">Transport</a></li>
+<li><a href="#guide">Guide</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+
+</ul>
+
+<div class="hamburger">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</nav>
+
+</header>
+
+<!-- =========================================================
+HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<h1>FIELD TRIPS</h1>
+
+<p>
+Professional educational travel experiences designed to improve learning,
+teamwork, leadership, social interaction, practical understanding,
+cultural awareness, and unforgettable memories for students.
+</p>
+
+<a href="#about" class="btn primary-btn">Learn More</a>
+
+<a href="#destinations" class="btn secondary-btn">Explore Destinations</a>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+ABOUT
+========================================================= -->
+
+<section class="section reveal" id="about">
+
+<div class="section-title">
+
+<h2>What Are Field Trips?</h2>
+
+<p>
+Field trips are organized educational journeys outside the classroom.
+They allow students to learn through practical experiences,
+observation, exploration, teamwork, and interaction with the real world.
+</p>
+
+</div>
+
+<div class="cards-grid">
+
+<div class="card">
+
+<i class="fa-solid fa-book-open"></i>
+
+<h3>Interactive Learning</h3>
+
+<p>
+Students learn better when they see real-life examples of what they study in class.
+Field trips make learning more engaging and memorable.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-users"></i>
+
+<h3>Team Building</h3>
+
+<p>
+Trips improve cooperation, communication, teamwork,
+and leadership skills among students.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-globe"></i>
+
+<h3>Cultural Exposure</h3>
+
+<p>
+Students gain exposure to different cultures,
+traditions, lifestyles, languages, and environments.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+HISTORY
+========================================================= -->
+
+<section class="section reveal" id="history">
+
+<div class="section-title">
+
+<h2>History Of Field Trips</h2>
+
+<p>
+Field trips became common in education during the late 19th century.
+Teachers realized students learn better through real-world observation.
+</p>
+
+</div>
+
+<div class="cards-grid">
+
+<div class="card">
+
+<i class="fa-solid fa-school"></i>
+
+<h3>Educational Development</h3>
+
+<p>
+Schools started organizing visits to museums,
+historical sites, and farms to improve learning experiences.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-microscope"></i>
+
+<h3>Scientific Exploration</h3>
+
+<p>
+Science field trips allowed students to study nature,
+animals, geology, and environmental systems directly.
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-plane"></i>
+
+<h3>Modern Educational Tourism</h3>
+
+<p>
+Today, schools organize international trips
+to major educational and cultural destinations worldwide.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+IMPORTANCE
+========================================================= -->
+
+<section class="section reveal" id="importance">
+
+<div class="section-title">
+
+<h2>Educational Importance</h2>
+
+<p>
+Field trips provide hands-on experiences that improve
+understanding, creativity, confidence, and critical thinking.
+</p>
+
+</div>
+
+<div class="cards-grid">
+
+<div class="card">
+<i class="fa-solid fa-brain"></i>
+<h3>Critical Thinking</h3>
+<p>
+Students learn to observe, analyze,
+and solve real-world problems practically.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-lightbulb"></i>
+<h3>Creativity</h3>
+<p>
+New environments inspire imagination and innovative ideas.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-heart"></i>
+<h3>Confidence</h3>
+<p>
+Students become more independent and socially confident.
+</p>
+</div>
+
+</div>
+
+
+
+<!-- =========================================================
+DESTINATIONS
+========================================================= -->
+
+<section class="section reveal" id="destinations">
+
+<div class="section-title">
+
+<h2>Popular Destinations</h2>
+
+<p>
+Famous educational destinations visited by students around the world.
+</p>
+
+</div>
+
+<div class="cards-grid">
+
+<!-- PARIS -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3>Paris, France</h3>
+
+<p><strong>Educational Importance:</strong> Art, architecture, history, language, and culture.</p>
+
+<p><strong>Tourist Attractions:</strong> Eiffel Tower, Louvre Museum, Notre-Dame.</p>
+
+<p><strong>Fun Fact:</strong> Paris is called “The City of Light.”</p>
+
+<p><strong>Best Season:</strong> Spring.</p>
+
+<a href="https://www.youtube.com/watch?v=REDVbTQxMXo" target="_blank" class="btn primary-btn">
+Watch Video
+</a>
+
+</div>
+
+<!-- LONDON -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3>London, England</h3>
+
+<p><strong>Educational Importance:</strong> Literature, politics, science, and history.</p>
+
+<p><strong>Tourist Attractions:</strong> Big Ben, London Eye, British Museum.</p>
+
+<p><strong>Fun Fact:</strong> London has over 170 museums.</p>
+
+<p><strong>Best Season:</strong> Summer.</p>
+
+<a href="https://www.youtube.com/watch?v=ltZHHqWhfBc" target="_blank" class="btn primary-btn">
+Watch Video
+</a>
+
+</div>
+
+<!-- NEW YORK -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3>New York, USA</h3>
+
+<p><strong>Educational Importance:</strong> Business, arts, economics, and media.</p>
+
+<p><strong>Tourist Attractions:</strong> Statue of Liberty, Times Square.</p>
+
+<p><strong>Fun Fact:</strong> NYC is called “The City That Never Sleeps.”</p>
+
+<p><strong>Best Season:</strong> Autumn.</p>
+
+<a href="https://www.youtube.com/watch?v=HiZXABM9VSc" target="_blank" class="btn primary-btn">
+Watch Video
+</a>
+
+</div>
+
+<!-- TOKYO -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3>Tokyo, Japan</h3>
+
+<p><strong>Educational Importance:</strong> Technology, robotics, engineering.</p>
+
+<p><strong>Tourist Attractions:</strong> Tokyo Tower, Akihabara.</p>
+
+<p><strong>Fun Fact:</strong> Tokyo is one of the safest cities globally.</p>
+
+<p><strong>Best Season:</strong> Autumn.</p>
+
+<a href="https://www.youtube.com/watch?v=Q2f9z7M7sX4" target="_blank" class="btn primary-btn">
+Watch Video
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+MODES OF TRANSPORT SECTION - ADVANCED VERSION
+REPLACE YOUR OLD TRANSPORT SECTION WITH THIS
+========================================================= -->
+
+<section class="section reveal" id="transport">
+
+<div class="section-title">
+
+<h2>MODES OF TRANSPORT</h2>
+
+<p>
+Different modes of transport are used for educational field trips depending
+on distance, cost, comfort, safety, group size, and educational objectives.
+Each transport method offers unique advantages and challenges for students
+and teachers during educational travel experiences.
+</p>
+
+</div>
+
+<div class="cards-grid">
+
+<!-- =========================================================
+BUS TRANSPORT
+========================================================= -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3><i class="fa-solid fa-bus"></i> Bus Transport</h3>
+
+<p>
+Buses are one of the most common and affordable methods of transportation
+used for local and regional field trips. They are ideal for transporting
+large groups of students safely and efficiently over short to medium distances.
+</p>
+
+<p>
+<strong>Comfort Level:</strong>
+Moderate comfort with group seating and air-conditioned modern buses.
+</p>
+
+<p>
+<strong>Environmental Impact:</strong>
+Moderate carbon emissions depending on bus size and fuel type.
+</p>
+
+<p>
+<strong>Best Use Cases:</strong>
+School excursions, museum visits, sports trips, nearby city tours,
+and local educational travel.
+</p>
+
+<div class="transport-buttons">
+
+<button onclick="toggleContent('bus1')">
+Benefits
+</button>
+
+<button onclick="toggleContent('bus2')">
+Risks
+</button>
+
+<button onclick="toggleContent('bus3')">
+Average Costs
+</button>
+
+<button onclick="toggleContent('bus4')">
+Safety Tips
+</button>
+
+</div>
+
+<div class="hidden-content" id="bus1">
+
+<ul>
+<li>Affordable for schools and students.</li>
+<li>Flexible routes and schedules.</li>
+<li>Allows group interaction and teamwork.</li>
+<li>Ideal for short-distance travel.</li>
+<li>Easy luggage storage.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="bus2">
+
+<ul>
+<li>Traffic delays can affect schedules.</li>
+<li>Long journeys may become tiring.</li>
+<li>Road accidents can occur if safety rules are ignored.</li>
+<li>Motion sickness for some students.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="bus3">
+
+<ul>
+<li>Local trips: Low cost.</li>
+<li>Regional trips: Moderate cost.</li>
+<li>Fuel and toll costs may increase expenses.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="bus4">
+
+<ul>
+<li>Always wear seatbelts if available.</li>
+<li>Remain seated while the bus is moving.</li>
+<li>Follow teacher instructions at all times.</li>
+<li>Keep emergency exits clear.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+AIRPLANE TRANSPORT
+========================================================= -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3><i class="fa-solid fa-plane"></i> Airplane Transport</h3>
+
+<p>
+Air travel is the fastest method of transport used for international
+field trips and long-distance educational journeys. It allows students
+to visit destinations around the world within a short time period.
+</p>
+
+<p>
+<strong>Comfort Level:</strong>
+High comfort with reclining seats, onboard entertainment,
+and air conditioning.
+</p>
+
+<p>
+<strong>Environmental Impact:</strong>
+High carbon emissions compared to other transport methods.
+</p>
+
+<p>
+<strong>Best Use Cases:</strong>
+International tours, overseas cultural trips,
+global science conferences, and exchange programs.
+</p>
+
+<div class="transport-buttons">
+
+<button onclick="toggleContent('plane1')">
+Benefits
+</button>
+
+<button onclick="toggleContent('plane2')">
+Risks
+</button>
+
+<button onclick="toggleContent('plane3')">
+Average Costs
+</button>
+
+<button onclick="toggleContent('plane4')">
+Safety Tips
+</button>
+
+</div>
+
+<div class="hidden-content" id="plane1">
+
+<ul>
+<li>Fastest travel method available.</li>
+<li>Ideal for international educational travel.</li>
+<li>Comfortable seating and facilities.</li>
+<li>Reduces travel time significantly.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="plane2">
+
+<ul>
+<li>Weather delays may occur.</li>
+<li>Tickets can be expensive.</li>
+<li>Fear of flying among some students.</li>
+<li>Strict airport security procedures.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="plane3">
+
+<ul>
+<li>Domestic flights: Moderate to high cost.</li>
+<li>International flights: Expensive depending on distance.</li>
+<li>Extra baggage fees may apply.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="plane4">
+
+<ul>
+<li>Listen carefully to flight attendants.</li>
+<li>Wear seatbelts during takeoff and landing.</li>
+<li>Keep passports and travel documents secure.</li>
+<li>Arrive early for airport procedures.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+TRAIN TRANSPORT
+========================================================= -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3><i class="fa-solid fa-train"></i> Train Transport</h3>
+
+<p>
+Trains provide smooth, scenic, and environmentally friendly transportation.
+They are ideal for educational tours across cities and countries with
+advanced railway systems.
+</p>
+
+<p>
+<strong>Comfort Level:</strong>
+Very comfortable with spacious seating and scenic views.
+</p>
+
+<p>
+<strong>Environmental Impact:</strong>
+Low environmental pollution compared to planes and cars.
+</p>
+
+<p>
+<strong>Best Use Cases:</strong>
+Intercity educational tours,
+historical route exploration,
+and eco-friendly travel experiences.
+</p>
+
+<div class="transport-buttons">
+
+<button onclick="toggleContent('train1')">
+Benefits
+</button>
+
+<button onclick="toggleContent('train2')">
+Risks
+</button>
+
+<button onclick="toggleContent('train3')">
+Average Costs
+</button>
+
+<button onclick="toggleContent('train4')">
+Safety Tips
+</button>
+
+</div>
+
+<div class="hidden-content" id="train1">
+
+<ul>
+<li>Comfortable and spacious seating.</li>
+<li>Environmentally friendly travel.</li>
+<li>Beautiful scenery during journeys.</li>
+<li>Reliable schedules in many countries.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="train2">
+
+<ul>
+<li>Possible delays due to rail issues.</li>
+<li>Busy stations can cause confusion.</li>
+<li>Limited routes in some regions.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="train3">
+
+<ul>
+<li>Affordable for short-distance travel.</li>
+<li>Moderate pricing for high-speed trains.</li>
+<li>Group discounts often available.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="train4">
+
+<ul>
+<li>Stay behind safety lines at stations.</li>
+<li>Keep belongings secure.</li>
+<li>Board trains carefully and calmly.</li>
+<li>Follow conductor instructions.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+SHIP TRANSPORT
+========================================================= -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3><i class="fa-solid fa-ship"></i> Ship Transport</h3>
+
+<p>
+Ships and ferries are commonly used for marine educational trips,
+island tours, and long-distance ocean travel experiences.
+</p>
+
+<p>
+<strong>Comfort Level:</strong>
+Comfortable with cabins, restaurants, and outdoor viewing decks.
+</p>
+
+<p>
+<strong>Environmental Impact:</strong>
+Can contribute to water and air pollution if not eco-friendly.
+</p>
+
+<p>
+<strong>Best Use Cases:</strong>
+Marine biology trips,
+coastal tours,
+and island educational expeditions.
+</p>
+
+<div class="transport-buttons">
+
+<button onclick="toggleContent('ship1')">
+Benefits
+</button>
+
+<button onclick="toggleContent('ship2')">
+Risks
+</button>
+
+<button onclick="toggleContent('ship3')">
+Average Costs
+</button>
+
+<button onclick="toggleContent('ship4')">
+Safety Tips
+</button>
+
+</div>
+
+<div class="hidden-content" id="ship1">
+
+<ul>
+<li>Unique travel experience.</li>
+<li>Large group accommodation.</li>
+<li>Excellent for marine studies.</li>
+<li>Scenic ocean views.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="ship2">
+
+<ul>
+<li>Sea sickness among passengers.</li>
+<li>Stormy weather conditions.</li>
+<li>Long travel times.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="ship3">
+
+<ul>
+<li>Moderate to expensive depending on route.</li>
+<li>Cruise-style educational tours cost more.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="ship4">
+
+<ul>
+<li>Know emergency exit locations.</li>
+<li>Wear life jackets when instructed.</li>
+<li>Stay with the group at all times.</li>
+<li>Follow ship crew safety rules.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+HELICOPTER TRANSPORT
+========================================================= -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3><i class="fa-solid fa-helicopter"></i> Helicopter Transport</h3>
+
+<p>
+Helicopters are used for special educational experiences,
+aerial tours, rescue demonstrations, and quick transportation
+to difficult-to-reach locations.
+</p>
+
+<p>
+<strong>Comfort Level:</strong>
+Moderate comfort with limited seating capacity.
+</p>
+
+<p>
+<strong>Environmental Impact:</strong>
+High fuel usage and noise pollution.
+</p>
+
+<p>
+<strong>Best Use Cases:</strong>
+Aerial geography tours,
+emergency response demonstrations,
+and remote area access.
+</p>
+
+<div class="transport-buttons">
+
+<button onclick="toggleContent('heli1')">
+Benefits
+</button>
+
+<button onclick="toggleContent('heli2')">
+Risks
+</button>
+
+<button onclick="toggleContent('heli3')">
+Average Costs
+</button>
+
+<button onclick="toggleContent('heli4')">
+Safety Tips
+</button>
+
+</div>
+
+<div class="hidden-content" id="heli1">
+
+<ul>
+<li>Fast access to remote areas.</li>
+<li>Excellent aerial viewing experience.</li>
+<li>Useful for rescue demonstrations.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="heli2">
+
+<ul>
+<li>Very expensive transport option.</li>
+<li>Weather-sensitive operations.</li>
+<li>Limited passenger capacity.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="heli3">
+
+<ul>
+<li>Very high operational costs.</li>
+<li>Usually used only for specialized trips.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="heli4">
+
+<ul>
+<li>Always follow pilot instructions.</li>
+<li>Wear protective headsets if provided.</li>
+<li>Never approach rotating blades.</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+BICYCLE TRANSPORT
+========================================================= -->
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=1200&auto=format&fit=crop" class="destination-image">
+
+<h3><i class="fa-solid fa-bicycle"></i> Bicycle Transport</h3>
+
+<p>
+Bicycles are eco-friendly transport options commonly used for
+local exploration trips, health activities, and environmental studies.
+</p>
+
+<p>
+<strong>Comfort Level:</strong>
+Depends on distance and road conditions.
+</p>
+
+<p>
+<strong>Environmental Impact:</strong>
+Very environmentally friendly with zero emissions.
+</p>
+
+<p>
+<strong>Best Use Cases:</strong>
+Local tours,
+fitness activities,
+and eco-friendly educational experiences.
+</p>
+
+<div class="transport-buttons">
+
+<button onclick="toggleContent('bike1')">
+Benefits
+</button>
+
+<button onclick="toggleContent('bike2')">
+Risks
+</button>
+
+<button onclick="toggleContent('bike3')">
+Average Costs
+</button>
+
+<button onclick="toggleContent('bike4')">
+Safety Tips
+</button>
+
+</div>
+
+<div class="hidden-content" id="bike1">
+
+<ul>
+<li>Environmentally friendly.</li>
+<li>Improves student fitness.</li>
+<li>Low transportation costs.</li>
+<li>Promotes healthy lifestyles.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="bike2">
+
+<ul>
+<li>Road accidents possible.</li>
+<li>Weather conditions may affect travel.</li>
+<li>Physical exhaustion during long rides.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="bike3">
+
+<ul>
+<li>Very affordable transportation method.</li>
+<li>Minimal maintenance expenses.</li>
+</ul>
+
+</div>
+
+<div class="hidden-content" id="bike4">
+
+<ul>
+<li>Wear helmets at all times.</li>
+<li>Use reflective clothing.</li>
+<li>Follow traffic rules carefully.</li>
+<li>Stay in designated cycling lanes.</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================================
+TRANSPORT COMPARISON TABLE
+========================================================= -->
+
+<div class="section-title" style="margin-top:100px;">
+
+<h2>Transport Comparison</h2>
+
+</div>
+
+<div style="overflow-x:auto;">
+
+<table style="width:100%; border-collapse:collapse; background:rgba(255,255,255,0.05); border-radius:20px; overflow:hidden;">
+
+<tr style="background:gold; color:#07111f;">
+
+<th style="padding:20px;">Transport</th>
+<th style="padding:20px;">Speed</th>
+<th style="padding:20px;">Comfort</th>
+<th style="padding:20px;">Cost</th>
+<th style="padding:20px;">Eco-Friendly</th>
+
+</tr>
+
+<tr>
+<td style="padding:20px;">Bus</td>
+<td style="padding:20px;">Moderate</td>
+<td style="padding:20px;">Medium</td>
+<td style="padding:20px;">Low</td>
+<td style="padding:20px;">Moderate</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">Plane</td>
+<td style="padding:20px;">Very Fast</td>
+<td style="padding:20px;">High</td>
+<td style="padding:20px;">High</td>
+<td style="padding:20px;">Low</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">Train</td>
+<td style="padding:20px;">Fast</td>
+<td style="padding:20px;">High</td>
+<td style="padding:20px;">Moderate</td>
+<td style="padding:20px;">High</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">Ship</td>
+<td style="padding:20px;">Slow</td>
+<td style="padding:20px;">High</td>
+<td style="padding:20px;">Moderate</td>
+<td style="padding:20px;">Moderate</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">Helicopter</td>
+<td style="padding:20px;">Very Fast</td>
+<td style="padding:20px;">Medium</td>
+<td style="padding:20px;">Very High</td>
+<td style="padding:20px;">Low</td>
+</tr>
+
+<tr>
+<td style="padding:20px;">Bicycle</td>
+<td style="padding:20px;">Slow</td>
+<td style="padding:20px;">Moderate</td>
+<td style="padding:20px;">Very Low</td>
+<td style="padding:20px;">Very High</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+GUIDE
+========================================================= -->
+
+<section class="section reveal" id="guide">
+
+<div class="section-title">
+
+<h2>Guide To Follow</h2>
+
+</div>
+
+<div class="risk-box">
+
+<h3><i class="fa-solid fa-triangle-exclamation"></i> Child Gets Lost</h3>
+
+<p>
+Students should remain with their assigned groups at all times.
+</p>
+
+<button class="what-btn" onclick="toggleSolution('sol1')">
+WHAT TO DO
+</button>
+
+<div class="solution" id="sol1">
+
+Immediately contact supervisors,
+perform attendance checks,
+and inform security personnel.
+
+</div>
+
+</div>
+
+<div class="risk-box">
+
+<h3><i class="fa-solid fa-kit-medical"></i> Injury Or Illness</h3>
+
+<p>
+Minor or major injuries can happen during travel or activities.
+</p>
+
+<button class="what-btn" onclick="toggleSolution('sol2')">
+WHAT TO DO
+</button>
+
+<div class="solution" id="sol2">
+
+Provide first aid immediately
+and contact emergency medical services if necessary.
+
+</div>
+
+</div>
+
+<div class="risk-box">
+
+<h3><i class="fa-solid fa-cloud-showers-heavy"></i> Dangerous Weather</h3>
+
+<p>
+Bad weather conditions may affect travel safety.
+</p>
+
+<button class="what-btn" onclick="toggleSolution('sol3')">
+WHAT TO DO
+</button>
+
+<div class="solution" id="sol3">
+
+Move students to safe shelter areas
+and monitor weather updates continuously.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+GALLERY
+========================================================= -->
+
+<section class="section reveal" id="gallery">
+
+<div class="section-title">
+
+<h2>Gallery</h2>
+
+</div>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?q=80&w=1200&auto=format&fit=crop">
+
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop">
+
+</div>
+
+</section>
+
+<!-- =========================================================
+FAQ
+========================================================= -->
+
+<section class="section reveal" id="faq">
+
+<div class="section-title">
+
+<h2>Frequently Asked Questions</h2>
+
+</div>
+
+<div class="faq">
+
+<div class="faq-item">
+
+<div class="faq-question">
+Why are field trips important?
+</div>
+
+<div class="faq-answer">
+
+<p>
+Field trips provide practical learning experiences
+outside the classroom.
+</p>
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+Are field trips safe?
+</div>
+
+<div class="faq-answer">
+
+<p>
+Yes. Safety procedures and supervision are always provided.
+</p>
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question">
+What should students bring?
+</div>
+
+<div class="faq-answer">
+
+<p>
+Water, notebooks, snacks, and emergency contacts.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================================================
+CONTACT
+========================================================= -->
+
+<section class="section reveal" id="contact">
+
+<div class="section-title">
+
+<h2>Contact Us</h2>
+
+</div>
+
+<div class="contact-grid">
+
+<div class="card">
+
+<h3>Send A Message</h3>
+
+<form id="contactForm">
+
+<input type="text" placeholder="Name" required>
+
+<input type="text" placeholder="Surname" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number" required>
+
+<textarea rows="6" placeholder="Message"></textarea>
+
+<button class="btn primary-btn" type="submit">
+Submit Message
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h3>Contact Information</h3>
+
+<p><i class="fa-solid fa-phone"></i> +268 76553077</p>
+
+<br>
+
+<p><i class="fa-solid fa-envelope"></i> tinashechirume360@gmail.com</p>
+
+<br>
+
+<p><i class="fa-solid fa-location-dot"></i> F9RG+24 Manzini, Eswatini</p>
+
+<br>
+
+<h3>Business Hours</h3>
+
+<p>Monday - Friday: 8AM - 5PM</p>
+
+<br>
+
+<div class="socials">
+
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<iframe src="https://maps.google.com/maps?q=manzini%20eswatini&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</section>
+
+<!-- =========================================================
+FOOTER
+========================================================= -->
+
+<footer>
+
+<h2>Organising With Tinashe</h2>
+
+<p>
+Professional Educational Field Trip Experiences
+</p>
+
+<div class="footer-links">
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#destinations">Destinations</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+<div class="socials">
+
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+
+</div>
+
+<br>
+
+<p>
+© 2026 Organising With Tinashe
+</p>
+
+</footer>
+
+<!-- =========================================================
+JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* LOADER */
+
+window.addEventListener('load',()=>{
+
+document.querySelector('.loader').style.display='none';
+
+});
+
+/* MOBILE MENU */
+
+const hamburger=document.querySelector('.hamburger');
+
+const navLinks=document.querySelector('.nav-links');
+
+hamburger.addEventListener('click',()=>{
+
+navLinks.classList.toggle('show');
+
+});
+
+/* SCROLL REVEAL */
+
+window.addEventListener('scroll',reveal);
+
+function reveal(){
+
+const reveals=document.querySelectorAll('.reveal');
+
+reveals.forEach(reveal=>{
+
+const windowHeight=window.innerHeight;
+
+const revealTop=reveal.getBoundingClientRect().top;
+
+if(revealTop<windowHeight-100){
+
+reveal.classList.add('active');
+
+}
+
+});
+
+}
+
+reveal();
+
+/* COUNTERS */
+
+const counters=document.querySelectorAll('.counter');
+
+counters.forEach(counter=>{
+
+counter.innerText='0';
+
+const updateCounter=()=>{
+
+const target=+counter.getAttribute('data-target');
+
+const current=+counter.innerText;
+
+const increment=target/100;
+
+if(current<target){
+
+counter.innerText=Math.ceil(current+increment);
+
+setTimeout(updateCounter,20);
+
+}else{
+
+counter.innerText=target;
+
+}
+
+}
+
+updateCounter();
+
+});
+
+/* FAQ */
+
+const faqItems=document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item=>{
+
+const question=item.querySelector('.faq-question');
+
+question.addEventListener('click',()=>{
+
+item.classList.toggle('active');
+
+});
+
+});
+
+/* TRANSPORT CONTENT */
+
+function toggleContent(id){
+
+const content=document.getElementById(id);
+
+if(content.style.display==="block"){
+
+content.style.display="none";
+
+}else{
+
+content.style.display="block";
+
+}
+
+}
+
+/* GUIDE SOLUTIONS */
+
+function toggleSolution(id){
+
+const solution=document.getElementById(id);
+
+if(solution.style.display==="block"){
+
+solution.style.display="none";
+
+}else{
+
+solution.style.display="block";
+
+}
+
+}
+
+/* CONTACT FORM */
+
+const form=document.getElementById('contactForm');
+
+form.addEventListener('submit',function(e){
+
+e.preventDefault();
+
+alert('Message Submitted Successfully!');
+
+form.reset();
+
+});
+
+</script>
+
+</body>
+</html>
